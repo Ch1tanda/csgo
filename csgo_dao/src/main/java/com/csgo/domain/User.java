@@ -5,14 +5,26 @@ import java.io.Serializable;
 public class User implements Serializable {
     private Integer id;
     private String email;
-    private String username;
     private String password;
-    private String tel;
+    private String username;
     private String qq;
     private String platform;
     private String rank;
-    private Integer school;
     private Integer groupid;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                ", qq='" + qq + '\'' +
+                ", platform='" + platform + '\'' +
+                ", rank='" + rank + '\'' +
+                ", groupid=" + groupid +
+                '}';
+    }
 
     public Integer getId() {
         return id;
@@ -30,14 +42,6 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -46,12 +50,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getTel() {
-        return tel;
+    public String getUsername() {
+        return username;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getQq() {
@@ -78,35 +82,11 @@ public class User implements Serializable {
         this.rank = rank;
     }
 
-    public Integer getSchool() {
-        return school;
-    }
-
-    public void setSchool(Integer school) {
-        this.school = school;
-    }
-
     public Integer getGroupid() {
         return groupid;
     }
 
     public void setGroupid(Integer groupid) {
         this.groupid = groupid;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", tel='" + tel + '\'' +
-                ", qq='" + qq + '\'' +
-                ", platform='" + platform + '\'' +
-                ", rank='" + rank + '\'' +
-                ", school=" + school +
-                ", groupid=" + groupid +
-                '}';
     }
 }

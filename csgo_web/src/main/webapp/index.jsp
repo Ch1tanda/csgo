@@ -9,45 +9,40 @@
 <html>
 <head>
     <title>Title</title>
-<script src="js/jquery-3.5.1.js"/>
-<script>
-
-    $(function () {
-        $("#bb").click(function () {
-            alert("test");
-        })
-    })
-
-    function test() {
-        alert("test");
-    }
-
-</script>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <script src="./js/jquery-3.5.1.js"></script>
+    <style>
+        .row > h1{
+            font-size: 60px;
+        }
+        label{
+            color: thistle;
+        }
+        h1{
+            color: thistle;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-
-<a href="/user/findAll">测试查询所有选手</a><br>
-<a href="/user/register">测试注册</a><br>
-<a href="/group/findAll">测试查询所有战队</a>
-<button id="btn" onclick="test()">测试js</button>
-<button id="bb">测试ajax</button>
-<form action="/user/main" method="post">
-
-<table>
-    <tr>
-        <td>email:</td>
-        <td><input type="text" id="email" name="email"></td>
-    </tr>
-    <tr>
-        <td>password:</td>
-        <td><input type="text" name="password"></td>
-    </tr>
-    <tr>
-        <td>
-            <input type="submit" value="submit">
-        </td>
-    </tr>
-</table>
-</form>
+<div class="container-fluid" style="height: 969px;background-image: url(./images/login.jpg);" >
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+            <br><br><br><br><br><br><br><br><br><br><br>
+            <form>
+                <div class="form-group">
+                    <label for="password" style="color: thistle;">电子邮箱</label>
+                    <input type="email" class="form-control" id="email" placeholder="电子邮箱">
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" class="form-control" id="password" placeholder="密码">
+                </div>
+                <button type="submit" class="btn btn-default">登录</button>
+                <a class="btn btn-default" style="float: right;" href="login/register">注册</a>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

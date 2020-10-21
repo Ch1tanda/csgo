@@ -2,7 +2,6 @@ package com.csgo.dao;
 
 import com.csgo.domain.User;
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -25,7 +24,7 @@ public interface IUserDao {
      * @param user
      */
     @Insert("insert into userinfo " +
-            "values(#{id}, #{email}, #{username}, #{password}, #{tel}, #{qq}, #{platform}, #{rank}, #{school}, #{groupid})")
+            "values(#{id}, #{email}, #{password}, #{username}, #{qq}, #{platform}, #{rank}, #{groupid})")
     void registerUser(User user);
 
 }
