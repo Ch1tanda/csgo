@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <style>
         .row > h1{
-            font-size: 50;
+            font-size: 70px;
         }
         label{
             color: thistle;
