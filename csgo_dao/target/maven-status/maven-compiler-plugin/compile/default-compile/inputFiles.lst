@@ -1,2 +1,2 @@
-D:\eclipse\csgo\csgo_dao\src\main\java\com\csgo\dao\IAccountDao.java
-D:\eclipse\csgo\csgo_dao\src\main\java\com\csgo\domain\Account.java
+D:\csgo\csgo_dao\src\main\java\com\csgo\domain\User.java
+D:\csgo\csgo_dao\src\main\java\com\csgo\dao\IUserDao.java

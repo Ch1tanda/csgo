@@ -36,7 +36,11 @@
 <div class="container">
     <br><br>
     <div class="page-header">
-        <h1>比赛记录页面</h1>
+        <h1>比赛记录页面（比赛还没开始，所以这里是空的）</h1>
+    </div>
+    <div>
+        <h2>我永远喜欢樱泽墨</h2>
+        <img src="../../../images/cute.jpg">
     </div>
 </div> <!-- /container -->
 </body>
