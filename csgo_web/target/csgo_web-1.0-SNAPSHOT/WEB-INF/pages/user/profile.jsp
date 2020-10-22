@@ -62,8 +62,8 @@
         <div class="col-md-8"><h2>${user.groupid}</h2></div>
     </div>
     <div class="row">
-        <div class="col-md-4"><h2>参与赛事:</h2></div>
-        <div class="col-md-8"><h2></h2></div>
+        <div class="col-md-4"><h2>是否参赛:</h2></div>
+        <div class="col-md-8"><h2>${user.signed}</h2></div>
     </div>
 </div> <!-- /container -->
 

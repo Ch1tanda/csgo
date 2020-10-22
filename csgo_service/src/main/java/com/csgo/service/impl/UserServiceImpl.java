@@ -44,6 +44,7 @@ public class UserServiceImpl implements IUserService {
             }
         }
         if(result){
+            user.setSigned("No");
             dao.registerUser(user);
         }
         return result;

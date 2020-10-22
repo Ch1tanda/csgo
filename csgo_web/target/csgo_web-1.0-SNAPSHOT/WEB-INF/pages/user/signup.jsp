@@ -10,6 +10,22 @@
 <head>
     <title>赛事报名</title>
     <link rel="stylesheet" href="../../../bootstrap/css/bootstrap.min.css">
+    <script src="../../../js/jquery-3.5.1.js"></script>
+    <script>
+        function sign(){
+            $.ajax({
+                url:"signupsubmit",
+                type:"post",
+                success:function (data){
+                    if(data){
+                        alert("报名成功");
+                    }else{
+                        alert("已经报过名啦");
+                    }
+                }
+            })
+        }
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -35,8 +51,11 @@
 <div class="container">
     <br><br>
     <div class="page-header">
-        <h1>赛事报名页面</h1>
+        <h1>点下面的按钮就可以报名啦 φ(゜▽゜*)♪</h1>
     </div>
+    <p>
+        <button type="button" class="btn btn-primary btn-lg" onclick="sign()">报名报名报名报名报名</button>
+    </p>
 </div> <!-- /container -->
 </body>
 </html>
