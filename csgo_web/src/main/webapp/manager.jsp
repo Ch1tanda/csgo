@@ -21,10 +21,10 @@
         <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
         <div id="navbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="./manager.jsp">管理说明</a></li>
-                <li><a href="manager/userinfo">选手信息</a></li>
-                <li><a href="manager/group">创建分组</a></li>
-                <li><a href="manager/result">添加赛果</a></li>
+                <li class="active"><a href="vip/manager">管理说明</a></li>
+                <li><a href="vip/userinfo">选手信息</a></li>
+                <li><a href="vip/group">创建分组</a></li>
+                <li><a href="vip/result">添加赛果</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href=""></a></li>

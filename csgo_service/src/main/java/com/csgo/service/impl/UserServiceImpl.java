@@ -29,6 +29,8 @@ public class UserServiceImpl implements IUserService {
         System.out.println(user);
         //将邮箱转为小写
         user.setEmail(user.getEmail().toLowerCase());
+        //将平台转为大写
+        user.setPlatform(user.getPlatform().toUpperCase());
         //获取所有用户
         final List<User> users = dao.findAll();
         //声明结果
