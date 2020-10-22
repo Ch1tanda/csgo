@@ -18,9 +18,9 @@
     <!-- 配置连接池 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://81.68.88.97:3306/CSGO"/>
+        <property name="jdbcUrl" value="jdbc:mysql://47.92.72.190/csgo"/>
         <property name="user" value="root"/>
-        <property name="password" value="Mas123456@+"/>
+        <property name="password" value="LJQ200032"/>
     </bean>
     <!-- 配置SqlSessionFactory工厂 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

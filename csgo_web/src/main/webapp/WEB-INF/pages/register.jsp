@@ -51,16 +51,33 @@
                 alert("平台名过长且不能为空");
             }else if(rank.length>20 || rank==""){
                 alert("分数/段位过长且不能为空");
-            }else{
+            }else {
+                var obj={
+                    username:username,
+                    password:password,
+                    email:email,
+                    qq:qq,
+                    platform:platform,
+                    rank:rank
+                }
+                var myJson = JSON.stringify(obj);
                 $.ajax({
-                    url:"registersubmit",
-                    type:"post",
-                    contentType:"application/json;charset=UTF-8",
-                    data:'{"userName":'+username+',"password":'+password+',"qq":'+qq+',"email":'+email+',"platform":'+platform+',"rank":'+rank+'}',
-                    dataType:"json"
+                    url: "registersubmit",
+                    type: "post",
+                    contentType: "application/json;charset=UTF-8",
+                    data:myJson,
+                    dataType: "json",
+                    success:function (data) {
+                        console.log(data);
+                        if(data){
+                            alert("注册成功");
+                            location.href="/index.jsp";
+                        }else{
+                            alert("该邮箱已注册");
+                        }
+                    }
                 })
             }
-
         }
     </script>
 </head>
@@ -76,7 +93,7 @@
                 </div>
                 <div class="form-group">
                     <label for="password">密码</label>
-                    <input type="password" class="form-control" id="password" placeholder="密码">
+                    <input type="password" class="form-control" id="password" placeholder="密码 6~20位大小写字母与数字">
                 </div>
                 <div class="form-group">
                     <label for="password">重复密码</label>

@@ -23,8 +23,8 @@ public interface IUserDao {
      * 用户注册
      * @param user
      */
-    @Insert("insert into userinfo " +
-            "values(#{id}, #{email}, #{password}, #{username}, #{qq}, #{platform}, #{rank}, #{groupid})")
-    void registerUser(User user);
+    @Insert("insert into userinfo(email,`password`,username,qq,platform,`rank`) " +
+            "values(#{email}, #{password}, #{username}, #{qq}, #{platform}, #{rank})")
+    boolean registerUser(User user);
 
 }

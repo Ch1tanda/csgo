@@ -1,9 +1,12 @@
 package com.csgo.controller;
 
 import com.csgo.domain.User;
+import com.csgo.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +22,9 @@ import java.io.IOException;
 @Controller
 @RequestMapping(path="/login")
 public class LoginController {
+    @Autowired
+    private IUserService userService;
+
     @RequestMapping(path="/register")
     public String toRegister(){
         return "register";
@@ -26,13 +32,16 @@ public class LoginController {
 
     @RequestMapping(path="/return")
     public String returnLogin(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        System.out.println("returnLogin executing");
+        System.out.println("returnLogin executing......");
         return "redirect:/index.jsp";
     }
 
     @RequestMapping(path="/registersubmit")
-    public String register(@RequestBody User user){
+    @ResponseBody
+    public boolean register(@RequestBody User user, HttpServletResponse response, HttpServletRequest request) throws Exception {
+        System.out.println("registering......");
         System.out.println(user);
-        return "redirect:/index.jsp";
+        boolean result = userService.registerUser(user);
+        return result;
     }
 }

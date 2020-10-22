@@ -16,7 +16,7 @@ public interface IUserService {
      * 用户注册
      * @param user
      */
-    void registerUser(User user);
+    boolean registerUser(User user);
 
     User findByEmail(String email);
 

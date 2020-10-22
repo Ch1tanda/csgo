@@ -4,7 +4,6 @@ import com.csgo.dao.IUserDao;
 import com.csgo.domain.User;
 import com.csgo.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,14 +30,28 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void registerUser(User user) {
-        System.out.println("业务层：用户注册...");
+    public boolean registerUser(User user) {
         System.out.println(user);
-        dao.registerUser(user);
+        //将邮箱转为小写
+        user.setEmail(user.getEmail().toLowerCase());
+        //获取所有用户
+        final List<User> users = dao.findAll();
+        //声明结果
+        boolean result = true;
+        for(User u : users){
+            if(u.getEmail().toLowerCase().equals(user.getEmail())){
+                result = false;
+            }
+        }
+        if(result){
+            dao.registerUser(user);
+        }
+        return result;
     }
 
     @Override
     public User findByEmail(String email) {
+        email=email.toLowerCase();
         User user = dao.findByEmail(email);
         return user;
     }
