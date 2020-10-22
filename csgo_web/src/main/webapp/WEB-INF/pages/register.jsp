@@ -35,7 +35,7 @@
             var platform=document.getElementById("platform").value;
             var rank=document.getElementById("rank").value;
             var pwd_reg=new RegExp("^[0-9a-zA-Z]{6,20}$");
-            var qq_reg=new RegExp("^[0-9]{5,10}$")
+            var qq_reg=new RegExp("^[0-9]{5,10}$");
             var email_reg=new RegExp("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$");
             if(username.length>24 || username==""){
                 alert("游戏昵称长度过长且不能为空");

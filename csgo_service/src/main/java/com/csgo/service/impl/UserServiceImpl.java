@@ -49,6 +49,11 @@ public class UserServiceImpl implements IUserService {
         return result;
     }
 
+    /**
+     * 通过邮箱登录，查询前会把要查的邮箱更换为全小写
+     * @param email
+     * @return
+     */
     @Override
     public User findByEmail(String email) {
         email=email.toLowerCase();
@@ -56,13 +61,17 @@ public class UserServiceImpl implements IUserService {
         return user;
     }
 
+    /**
+     * 登录
+     * @param email
+     * @param pwd
+     * @return
+     */
     @Override
     public User login(String email, String pwd){
         User user = findByEmail(email);
-        if (user.getPassword().equals(pwd)){
+        if(user != null && user.getPassword().equals(pwd)){
             return user;
-        }
-        else
-            return null;
+        }else return null;
     }
 }

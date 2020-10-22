@@ -4,9 +4,11 @@ import com.csgo.domain.User;
 import com.csgo.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +23,7 @@ import java.io.IOException;
  */
 @Controller
 @RequestMapping(path="/login")
+@SessionAttributes("user")
 public class LoginController {
     @Autowired
     private IUserService userService;
@@ -42,6 +45,20 @@ public class LoginController {
         System.out.println("registering......");
         System.out.println(user);
         boolean result = userService.registerUser(user);
+        return result;
+    }
+
+    @RequestMapping(path = "/loginsubmit")
+    @ResponseBody
+    public boolean loginSubmit(@RequestBody User user, Model model){
+        System.out.println("logining......");
+        System.out.println(user);
+        boolean result = false;
+        User ruser = userService.login(user.getEmail(),user.getPassword());
+        if(ruser != null){
+            result = true;
+            model.addAttribute("user",ruser);
+        }
         return result;
     }
 }
