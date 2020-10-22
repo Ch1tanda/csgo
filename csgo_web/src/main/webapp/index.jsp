@@ -41,6 +41,12 @@
                 })
             }
         }
+
+        $("body").keydown(function () {
+            if(event.keyCode = "13"){
+                loginsubmit();
+            }
+        })
     </script>
     <style>
         .row > h1{
@@ -63,7 +69,7 @@
             <form>
                 <div class="form-group">
                     <label for="password" style="color: thistle;">电子邮箱</label>
-                    <input type="email" class="form-control" id="email" placeholder="电子邮箱">
+                    <input type="email" class="form-control" id="email" placeholder="电子邮箱" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="password">密码</label>

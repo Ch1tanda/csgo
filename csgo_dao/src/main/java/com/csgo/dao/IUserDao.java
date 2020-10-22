@@ -3,6 +3,7 @@ package com.csgo.dao;
 import com.csgo.domain.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -27,4 +28,10 @@ public interface IUserDao {
             "values(#{email}, #{password}, #{username}, #{qq}, #{platform}, #{rank}, #{signed});")
     boolean registerUser(User user);
 
+    /**
+     * 更新用户
+     * @param user
+     */
+    @Update("update userinfo set signed=#{signed} where id=#{id}")
+    void updateUser(User user);
 }

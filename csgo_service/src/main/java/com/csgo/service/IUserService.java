@@ -22,4 +22,6 @@ public interface IUserService {
 
     User login(String email, String pwd);
 
+    void updateUser(User user);
+
 }

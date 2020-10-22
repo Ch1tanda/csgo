@@ -10,6 +10,27 @@
 <head>
     <title>管理员登录</title>
     <link rel="stylesheet" href="../../../bootstrap/css/bootstrap.min.css">
+    <script src="../../../js/jquery-3.5.1.js"></script>
+    <script>
+        function login(){
+            var password=document.getElementById("password").value;
+            $.ajax({
+                url:"managersubmit",
+                type:"post",
+                contentType: "application/json;charset=UTF-8",
+                data:password,
+                dateType:"json",
+                success:function (data){
+                    if(data){
+                        alert("口令正确，土豆没牛子！");
+                        location.href="/manager.jsp";
+                    }else{
+                        alert("(；′⌒`) 密码错误...");
+                    }
+                }
+            })
+        }
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -38,12 +59,12 @@
         <div class="form-group">
             <label for="password" class="col-sm-2 control-label">密码：</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="password" placeholder="请输入管理员密码">
+                <input type="password" class="form-control" id="password" placeholder="请输入管理员密码">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-default">登录</button>
+                <button type="button" class="btn btn-default" onclick="login()">登录</button>
             </div>
         </div>
     </form>
