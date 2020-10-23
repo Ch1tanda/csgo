@@ -16,7 +16,7 @@
             var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;
             var pwd_reg=new RegExp("^[0-9a-zA-Z]{6,20}$");
-            var email_reg=new RegExp("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$");
+            var email_reg=/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/;
             var obj ={email:email,password:password};
             var myJson = JSON.stringify(obj);
             if(!email_reg.test(email) || email==""){
@@ -49,36 +49,39 @@
         })
     </script>
     <style>
+        body{
+            background-color:#a6e1ec;
+            font-family: 微软雅黑
+        }
         .row > h1{
             font-size: 60px;
         }
         label{
-            color: thistle;
+            color: black;
         }
         h1{
-            color: thistle;
+            color: black;
             text-align: center;
         }
     </style>
 </head>
 <body>
-<div class="container-fluid" style="height: 969px;background-image: url(./images/login.jpg);" >
-    <div class="row">
-        <div class="col-md-2 col-md-offset-5">
-            <br><br><br><br><br><br><br><br><br><br><br>
-            <form>
-                <div class="form-group">
-                    <label for="password" style="color: thistle;">电子邮箱</label>
-                    <input type="email" class="form-control" id="email" placeholder="电子邮箱" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label for="password">密码</label>
-                    <input type="password" class="form-control" id="password" placeholder="密码">
-                </div>
-                <button type="button" class="btn btn-default" id="login" onclick="loginsubmit()">登录</button>
-                <a class="btn btn-default" style="float: right;" href="login/register">注册</a>
-            </form>
-        </div>
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <br><br><br><br><br><br><br><br><br><br>
+        <h1>CSGO「西电竞」</h1><br>
+        <form>
+            <div class="form-group">
+                <label for="password">电子邮箱</label>
+                <input type="email" class="form-control" id="email" placeholder="电子邮箱" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" class="form-control" id="password" placeholder="密码">
+            </div>
+            <button type="button" class="btn btn-default" id="login" onclick="loginsubmit()">登录</button>
+            <a class="btn btn-default" style="float: right;" href="login/register">注册</a>
+        </form>
     </div>
 </div>
 </body>

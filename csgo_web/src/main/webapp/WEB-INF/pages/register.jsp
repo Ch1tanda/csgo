@@ -13,14 +13,18 @@
     <title>注册</title>
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <style>
+        body{
+            background-color:#a6e1ec;
+            font-family: 微软雅黑
+        }
         .row > h1{
             font-size: 70px;
         }
         label{
-            color: thistle;
+            color: black;
         }
         h1{
-            color: thistle;
+            color: black;
             text-align: center;
         }
     </style>
@@ -36,7 +40,7 @@
             var rank=document.getElementById("rank").value;
             var pwd_reg=new RegExp("^[0-9a-zA-Z]{6,20}$");
             var qq_reg=new RegExp("^[0-9]{5,10}$");
-            var email_reg=new RegExp("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$");
+            var email_reg=/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/;
             if(username.length>24 || username==""){
                 alert("游戏昵称长度过长且不能为空");
             }else if(!pwd_reg.test(password) || password == ""){
@@ -82,44 +86,43 @@
     </script>
 </head>
 <body>
-<div class="container-fluid" style="height: 969px;background-image: url(../../images/login.jpg);" >
     <div class="row">
-        <div class="col-md-2 col-md-offset-5">
-            <br><br><br><br><br><br><br><br><br><br><br>
+        <div class="col-md-4 col-md-offset-4">
+            <br><br><br><br><br><br><br><br>
+            <h1>注册</h1>
             <form>
                 <div class="form-group">
-                    <label for="username" style="color: thistle;">游戏昵称</label>
-                    <input type="text" class="form-control" id="username" placeholder="游戏昵称">
+                    <label for="username">游戏昵称</label>
+                    <input type="text" class="form-control" id="username" placeholder="游戏昵称" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="password">密码</label>
-                    <input type="password" class="form-control" id="password" placeholder="密码 6~20位大小写字母与数字">
+                    <input type="password" class="form-control" id="password" placeholder="密码 6~20位大小写字母与数字" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="password">重复密码</label>
-                    <input type="password" class="form-control" id="repeatpassword" placeholder="重复密码">
+                    <input type="password" class="form-control" id="repeatpassword" placeholder="重复密码" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="qq">QQ</label>
-                    <input type="text" class="form-control" id="qq" placeholder="QQ">
+                    <input type="text" class="form-control" id="qq" placeholder="QQ" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="email">电子邮箱</label>
-                    <input type="email" class="form-control" id="email" placeholder="电子邮箱">
+                    <input type="email" class="form-control" id="email" placeholder="电子邮箱" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="platform">平台</label>
-                    <input type="text" class="form-control" id="platform" placeholder="平台(如5E/B5/完美/官匹)">
+                    <input type="text" class="form-control" id="platform" placeholder="平台(如5E/B5/完美/官匹)" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="rank">分数/段位</label>
-                    <input type="text" class="form-control" id="rank" placeholder="分数/段位">
+                    <input type="text" class="form-control" id="rank" placeholder="分数/段位" autocomplete="off">
                 </div>
                 <button type="button" class="btn btn-default" id="register" onclick="check()">注册</button>
                 <a type="button" class="btn btn-default" style="float: right;" id="return" href="return">返回</a>
             </form>
         </div>
     </div>
-</div>
 </body>
 </html>

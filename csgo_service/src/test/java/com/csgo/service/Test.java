@@ -45,4 +45,12 @@ public class Test {
         user.setSigned("Yes");
         userService.updateUser(user);
     }
+
+    @org.junit.Test
+    public void findById(){
+        ApplicationContext ac = new ClassPathXmlApplicationContext("spring/applicationContext-service.xml");
+        IUserService userService = ac.getBean("userService", IUserService.class);
+        User user = userService.findById(111);
+        System.out.println(user);
+    }
 }

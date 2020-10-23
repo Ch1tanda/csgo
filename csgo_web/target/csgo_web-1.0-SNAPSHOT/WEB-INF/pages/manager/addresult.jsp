@@ -10,6 +10,10 @@
 <head>
     <title>添加赛果</title>
     <link rel="stylesheet" href="../../../bootstrap/css/bootstrap.min.css">
+    <script src="../../../js/jquery-3.5.1.js"></script>
+    <script>
+
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -23,11 +27,11 @@
             <ul class="nav navbar-nav">
                 <li><a href="manager">管理说明</a></li>
                 <li><a href="userinfo">选手信息</a></li>
-                <li><a href="group">创建分组</a></li>
+                <li><a href="group">分组信息</a></li>
                 <li class="active"><a href="addresult">添加赛果</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href=""></a></li>
+                <li><a href="backtouser">返回用户页面</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

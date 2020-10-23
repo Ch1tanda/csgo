@@ -17,9 +17,21 @@ public interface IUserDao {
     @Select("select * from userinfo")
     List<User> findAll();
 
+    /**
+     * 使用邮箱查询用户
+     * @param email
+     * @return
+     */
     @Select("select * from userinfo where email = #{email}")
     User findByEmail(String email);
 
+    /**
+     * 使用ID查询用户
+     * @param id
+     * @return
+     */
+    @Select("select * from userinfo where id = #{id}")
+    User findById(Integer id);
     /**
      * 用户注册
      * @param user
@@ -32,6 +44,9 @@ public interface IUserDao {
      * 更新用户
      * @param user
      */
-    @Update("update userinfo set signed=#{signed} where id=#{id}")
+    @Update("update userinfo set email=#{email},password=#{password},username=#{username},qq=#{qq},platform=#{platform},`rank`=#{rank},signed=#{signed},groupid=#{groupid} where id=#{id}")
     void updateUser(User user);
+
+    @Select("select * from userinfo like ${username}")
+    List<User> findUserByUsername(String username);
 }

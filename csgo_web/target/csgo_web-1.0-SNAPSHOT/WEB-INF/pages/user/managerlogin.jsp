@@ -10,6 +10,7 @@
 <head>
     <title>管理员登录</title>
     <link rel="stylesheet" href="../../../bootstrap/css/bootstrap.min.css">
+
     <script src="../../../js/jquery-3.5.1.js"></script>
     <script>
         function login(){
@@ -45,6 +46,7 @@
                 <li><a href="main">主页</a></li>
                 <li><a href="profile">个人信息</a></li>
                 <li><a href="signup">赛事报名</a></li>
+                <li><a href="group">分组查询</a></li>
                 <li><a href="result">比赛结果</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

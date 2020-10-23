@@ -24,4 +24,5 @@ public interface IUserService {
 
     void updateUser(User user);
 
+    User findById(Integer id);
 }

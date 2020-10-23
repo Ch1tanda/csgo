@@ -1,6 +1,9 @@
 package com.csgo.controller;
 
+import com.csgo.domain.Group;
+import com.csgo.domain.GroupMessage;
 import com.csgo.domain.User;
+import com.csgo.service.IGroupService;
 import com.csgo.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,14 +18,41 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping(path = "/user")
-@SessionAttributes({"user","isManager"})
+@SessionAttributes({"user","isManager","groupMessage"})
 public class UserController {
     @Autowired
     private IUserService userService;
+    @Autowired
+    private IGroupService groupService;
 
+    @RequestMapping(path = "/group")
+    public String group(Model model){
+        //获取group数据
+        List<Group> groups = groupService.findAll();
+        System.out.println(groups);
+        //获取要存储到session的数据结构
+        List<GroupMessage> groupMessages = new ArrayList<>();
+        //构造list
+        for(Group group : groups){
+            GroupMessage gm = new GroupMessage();
+            gm.setId(group.getId());
+            gm.setGroupname(group.getGroupname());
+            gm.setUsername1(userService.findById(group.getId1()).getUsername());
+            gm.setUsername2(userService.findById(group.getId2()).getUsername());
+            gm.setUsername3(userService.findById(group.getId3()).getUsername());
+            gm.setUsername4(userService.findById(group.getId4()).getUsername());
+            gm.setUsername5(userService.findById(group.getId5()).getUsername());
+            System.out.println(gm);
+            groupMessages.add(gm);
+        }
+        model.addAttribute("groupMessage",groupMessages);
+        return "user/group";
+    }
     @RequestMapping(path = "/signupsubmit")
     @ResponseBody
     public boolean signupSubmit(ModelMap modelMap, Model model){

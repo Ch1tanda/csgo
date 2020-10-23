@@ -32,16 +32,19 @@ public class UserServiceImpl implements IUserService {
         //将平台转为大写
         user.setPlatform(user.getPlatform().toUpperCase());
         //获取所有用户
-        final List<User> users = dao.findAll();
+        List<User> users = dao.findAll();
         //声明结果
         boolean result = true;
         for(User u : users){
+            //有邮箱一样的就失败注册
             if(u.getEmail().toLowerCase().equals(user.getEmail())){
                 result = false;
             }
         }
         if(result){
+            //设置未报名
             user.setSigned("No");
+            //调取持久层方法进行注册
             dao.registerUser(user);
         }
         return result;
@@ -76,5 +79,10 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void updateUser(User user) {
         dao.updateUser(user);
+    }
+
+    @Override
+    public User findById(Integer id) {
+        return dao.findById(id);
     }
 }

@@ -21,9 +21,30 @@ public class Test {
         SqlSessionFactory ssf = (SqlSessionFactory) ac.getBean("sqlSessionFactory");
         SqlSession session = ssf.openSession();
         IUserDao ud = session.getMapper(IUserDao.class);
-        List<User> users = ud.findAll();
-        for(User user : users){
-            System.out.println(user);
+        User id = ud.findById(14);
+        if(id.getGroupid() == null){
+            System.out.println(111);
         }
+    }
+
+    @org.junit.Test
+    public void updateTest(){
+        ApplicationContext ac = new ClassPathXmlApplicationContext("spring/applicationContext-dao.xml");
+        SqlSessionFactory ssf = (SqlSessionFactory) ac.getBean("sqlSessionFactory");
+        SqlSession session = ssf.openSession();
+        IUserDao ud = session.getMapper(IUserDao.class);
+        User user = ud.findById(14);
+        user.setGroupid(null);
+        ud.updateUser(user);
+    }
+
+    @org.junit.Test
+    public void findUserByUsername(){
+        ApplicationContext ac = new ClassPathXmlApplicationContext("spring/applicationContext-dao.xml");
+        SqlSessionFactory ssf = (SqlSessionFactory) ac.getBean("sqlSessionFactory");
+        SqlSession session = ssf.openSession();
+        IUserDao ud = session.getMapper(IUserDao.class);
+        List<User> users = ud.findUserByUsername("%C%");
+        System.out.println(users);
     }
 }
