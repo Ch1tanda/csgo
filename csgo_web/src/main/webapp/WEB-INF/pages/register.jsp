@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <style>
         body{
-            background-color:#a6e1ec;
+            background-color:#b3ddd1;
             font-family: 微软雅黑
         }
         .row > h1{
@@ -88,8 +88,8 @@
 <body>
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <br><br><br><br><br><br><br><br>
-            <h1>注册</h1>
+            <br><br><br><br><br><br>
+            <h1>注册</h1><br><br>
             <form>
                 <div class="form-group">
                     <label for="username">游戏昵称</label>

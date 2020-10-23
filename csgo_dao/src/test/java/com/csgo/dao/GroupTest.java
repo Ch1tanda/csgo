@@ -30,9 +30,7 @@ public class GroupTest {
         group.setId3(3);
         group.setId4(4);
         group.setId5(5);
-        System.out.println(group);
-        gd.saveGroup(group);
-        System.out.println(group);
+
     }
 
     @Test

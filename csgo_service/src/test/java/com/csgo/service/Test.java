@@ -53,4 +53,12 @@ public class Test {
         User user = userService.findById(111);
         System.out.println(user);
     }
+
+    @org.junit.Test
+    public void findUserByUsername(){
+        ApplicationContext ac = new ClassPathXmlApplicationContext("spring/applicationContext-service.xml");
+        IUserService userService = ac.getBean("userService", IUserService.class);
+        List<User> users = userService.searchByName("o");
+        System.out.println(users);
+    }
 }

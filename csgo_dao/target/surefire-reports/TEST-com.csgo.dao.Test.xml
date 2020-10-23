@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.csgo.dao.Test" time="1.755" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="com.csgo.dao.Test" time="1.305" errors="0" skipped="0">
   <properties>
     <property name="java.vendor" value="Eclipse OpenJ9"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
@@ -86,5 +86,7 @@ JCL      - c82ff0c20f based on jdk8u265-b01"/>
     <property name="com.ibm.oti.configuration" value="scar"/>
     <property name="java.specification.version" value="1.8"/>
   </properties>
-  <testcase classname="com.csgo.dao.Test" name="userTest" time="1.755"/>
+  <testcase classname="com.csgo.dao.Test" name="findUserByUsername" time="0.408"/>
+  <testcase classname="com.csgo.dao.Test" name="updateTest" time="0.461"/>
+  <testcase classname="com.csgo.dao.Test" name="userTest" time="0.436"/>
 </testsuite>

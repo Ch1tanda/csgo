@@ -1,0 +1,4 @@
+com\csgo\service\IGroupService.class
+com\csgo\service\IUserService.class
+com\csgo\service\impl\GroupServiceImpl.class
+com\csgo\service\impl\UserServiceImpl.class

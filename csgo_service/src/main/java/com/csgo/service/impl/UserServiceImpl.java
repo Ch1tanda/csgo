@@ -85,4 +85,10 @@ public class UserServiceImpl implements IUserService {
     public User findById(Integer id) {
         return dao.findById(id);
     }
+
+    @Override
+    public List<User> searchByName(String username) {
+        String queryName = "%"+username+"%";
+        return dao.searchByName(queryName);
+    }
 }

@@ -52,6 +52,26 @@
                 })
             }
         }
+
+        function searchByname() {
+            var username = document.getElementById("username").value;
+            if(username == ""){
+                alert("昵称不能为空");
+            }else{
+                $.ajax({
+                    url:"searchByUsername",
+                    tyoe:"post",
+                    data: {
+                        "username":username
+                    },
+                    success:function (data) {
+                        if(data){
+                            location.href="search";
+                        }
+                    }
+                })
+            }
+        }
     </script>
 </head>
 <body>
@@ -126,11 +146,8 @@
     </div>
         <div class="container">
             <div class="col-md-2"><input class="form-control" placeholder="昵称" id="username"></div>
-            <div class="col-md-1"><button class="btn btn-info" id="name">昵称查询</button></div>
-            <div class="col-md-1"></div>
-            <div class="col-md-1"><button class="btn btn-info" id="5e">5E</button></div>
-            <div class="col-md-1"><button class="btn btn-info" id="b5">B5</button></div>
-            <div class="col-md-1"><button class="btn btn-info" id="official">官匹</button></div>
+            <div class="col-md-1"><button class="btn btn-info" onclick="searchByname()">昵称查询</button></div>
+            <div class="col-md-1"><a class="btn btn-info" href="userinfo">查看所有</a></div>
         </div>
     <table class="table">
         <thead>
@@ -141,6 +158,7 @@
                 <td>分数/段位</td>
                 <td>电子邮箱</td>
                 <td>QQ</td>
+                <td>备注</td>
                 <td>分组</td>
             </tr>
         </thead>
@@ -154,7 +172,8 @@
                         <td>${item.rank}</td>
                         <td>${item.email}</td>
                         <td>${item.qq}</td>
-                        <td>还未分组</td>
+                        <td>${item.message}</td>
+                        <td>null</td>
                     </tr>
                 </c:if>
             </c:forEach>
@@ -167,6 +186,7 @@
                         <td>${item.rank}</td>
                         <td>${item.email}</td>
                         <td>${item.qq}</td>
+                        <td>${item.message}</td>
                         <td>${item.groupid}</td>
                     </tr>
                 </c:if>

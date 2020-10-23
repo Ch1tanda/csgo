@@ -42,6 +42,8 @@
     <div>
         <h2>我永远喜欢樱泽墨</h2>
         <img src="../../../images/cute.jpg">
+        <br><br><br><br>
+        <h2>服务器太水管了，导致登录界面原来的一张CSGO大图只能换成纯色，这里放一张图弥补一下</h2>
     </div>
 </div> <!-- /container -->
 </body>

@@ -34,6 +34,26 @@ public class VipController {
     @Autowired
     private IUserService userService;
 
+    @RequestMapping(path = "/searchByUsername")
+    @ResponseBody
+    public boolean searchByUsername(HttpServletRequest request, Model model){
+        String username = request.getParameter("username");
+        List<User> result = new ArrayList<>();
+        List<User> users = userService.searchByName(username);
+        for(User user : users){
+            if("Yes".equals(user.getSigned())){
+                result.add(user);
+            }
+        }
+        model.addAttribute("signed",result);
+        return true;
+    }
+
+    /**
+     * 修改组名
+     * @param request
+     * @return
+     */
     @RequestMapping(path = "/modifygroup")
     @ResponseBody
     public boolean modifyGroup(HttpServletRequest request){
@@ -148,17 +168,19 @@ public class VipController {
         //获取要存储到session的数据结构
         List<GroupMessage> groupMessages = new ArrayList<>();
         //构造list
-        for(Group group : groups){
-            GroupMessage gm = new GroupMessage();
-            gm.setId(group.getId());
-            gm.setGroupname(group.getGroupname());
-            gm.setUsername1(userService.findById(group.getId1()).getUsername());
-            gm.setUsername2(userService.findById(group.getId2()).getUsername());
-            gm.setUsername3(userService.findById(group.getId3()).getUsername());
-            gm.setUsername4(userService.findById(group.getId4()).getUsername());
-            gm.setUsername5(userService.findById(group.getId5()).getUsername());
-            System.out.println(gm);
-            groupMessages.add(gm);
+        if(groups.size() != 0){
+            for(Group group : groups){
+                GroupMessage gm = new GroupMessage();
+                gm.setId(group.getId());
+                gm.setGroupname(group.getGroupname());
+                gm.setUsername1(userService.findById(group.getId1()).getUsername());
+                gm.setUsername2(userService.findById(group.getId2()).getUsername());
+                gm.setUsername3(userService.findById(group.getId3()).getUsername());
+                gm.setUsername4(userService.findById(group.getId4()).getUsername());
+                gm.setUsername5(userService.findById(group.getId5()).getUsername());
+                System.out.println(gm);
+                groupMessages.add(gm);
+            }
         }
         model.addAttribute("groupMessage",groupMessages);
         return "manager/group";
@@ -179,4 +201,10 @@ public class VipController {
         response.sendRedirect(request.getContextPath()+"/user/main");
         return "user/main";
     }
+
+    @RequestMapping(path = "/search")
+    public String toSearch(){
+        return "manager/searchByName";
+    }
+
 }

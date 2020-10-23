@@ -98,7 +98,7 @@
                 <label for="id">组号</label>
                 <input type="email" class="form-control" id="id" placeholder="组号id">
                 <br>
-                <button type="button" class="btn btn-info" onclick="submit()" id="btn1">提交撤销</button>
+                <button type="button" class="btn btn-info" onclick="submit()">提交撤销</button>
             </div>
         </div>
         <div class="col-md-1"></div>

@@ -1,0 +1,5 @@
+com\csgo\interceptor\VipInterceptor.class
+com\csgo\controller\UserController.class
+com\csgo\controller\VipController.class
+com\csgo\controller\LoginController.class
+com\csgo\interceptor\UserInterceptor.class

@@ -1,3 +1,5 @@
 D:\csgo\csgo_web\src\main\java\com\csgo\controller\UserController.java
-D:\csgo\csgo_web\src\main\java\com\csgo\controller\ManagerController.java
+D:\csgo\csgo_web\src\main\java\com\csgo\controller\VipController.java
 D:\csgo\csgo_web\src\main\java\com\csgo\controller\LoginController.java
+D:\csgo\csgo_web\src\main\java\com\csgo\interceptor\UserInterceptor.java
+D:\csgo\csgo_web\src\main\java\com\csgo\interceptor\VipInterceptor.java

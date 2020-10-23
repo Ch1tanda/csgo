@@ -27,7 +27,7 @@
                 <li><a href="vip/result">添加赛果</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href=""></a></li>
+                <li><a href="vip/backtouser">返回用户页面</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

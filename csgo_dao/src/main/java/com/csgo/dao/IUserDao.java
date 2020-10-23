@@ -36,17 +36,17 @@ public interface IUserDao {
      * 用户注册
      * @param user
      */
-    @Insert("insert into userinfo(email,`password`,username,qq,platform,`rank`,signed) " +
-            "values(#{email}, #{password}, #{username}, #{qq}, #{platform}, #{rank}, #{signed});")
+    @Insert("insert into userinfo(email,`password`,username,qq,platform,`rank`,signed,message) " +
+            "values(#{email}, #{password}, #{username}, #{qq}, #{platform}, #{rank}, #{signed},#{message});")
     boolean registerUser(User user);
 
     /**
      * 更新用户
      * @param user
      */
-    @Update("update userinfo set email=#{email},password=#{password},username=#{username},qq=#{qq},platform=#{platform},`rank`=#{rank},signed=#{signed},groupid=#{groupid} where id=#{id}")
+    @Update("update userinfo set email=#{email},password=#{password},username=#{username},qq=#{qq},platform=#{platform},`rank`=#{rank},signed=#{signed},groupid=#{groupid},message=#{message} where id=#{id}")
     void updateUser(User user);
 
-    @Select("select * from userinfo like ${username}")
-    List<User> findUserByUsername(String username);
+    @Select("select * from userinfo where username like #{username}")
+    List<User> searchByName(String username);
 }

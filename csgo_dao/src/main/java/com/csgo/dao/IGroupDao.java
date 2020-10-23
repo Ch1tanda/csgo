@@ -21,11 +21,11 @@ public interface IGroupDao {
     @Select("select * from `group` where id=#{id};")
     Group findById(Integer id);
 
-    @Insert("insert into `group`(groupname,id1,id2,id3,id4,id5) values(#{groupname},#{id1},#{id2},#{id3},#{id4},#{id5});")
+    @Insert("insert into `group`(groupname,live,id1,id2,id3,id4,id5) values(#{groupname},#{live},#{id1},#{id2},#{id3},#{id4},#{id5});")
     @SelectKey(before = false,keyProperty = "id", keyColumn = "id",resultType = Integer.class,statement = "select last_insert_id();")
     void saveGroup(Group group);
 
-    @Update("update `group` set groupname=#{groupname},id1=#{id1},id2=#{id2},id3=#{id3},id4=#{id4},id5=#{id5} where id=#{id};")
+    @Update("update `group` set groupname=#{groupname},live=#{live},id1=#{id1},id2=#{id2},id3=#{id3},id4=#{id4},id5=#{id5} where id=#{id};")
     void updateGroup(Group group);
 
     @Delete("delete from `group` where id = #{id};")

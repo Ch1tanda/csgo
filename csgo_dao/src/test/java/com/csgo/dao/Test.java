@@ -44,7 +44,7 @@ public class Test {
         SqlSessionFactory ssf = (SqlSessionFactory) ac.getBean("sqlSessionFactory");
         SqlSession session = ssf.openSession();
         IUserDao ud = session.getMapper(IUserDao.class);
-        List<User> users = ud.findUserByUsername("%C%");
+        List<User> users = ud.searchByName("%o%");
         System.out.println(users);
     }
 }

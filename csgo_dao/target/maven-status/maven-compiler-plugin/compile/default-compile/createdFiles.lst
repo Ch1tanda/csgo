@@ -1,0 +1,5 @@
+com\csgo\domain\Group.class
+com\csgo\domain\User.class
+com\csgo\domain\GroupMessage.class
+com\csgo\dao\IGroupDao.class
+com\csgo\dao\IUserDao.class

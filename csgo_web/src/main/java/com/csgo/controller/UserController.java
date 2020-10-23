@@ -38,32 +38,39 @@ public class UserController {
         //获取要存储到session的数据结构
         List<GroupMessage> groupMessages = new ArrayList<>();
         //构造list
-        for(Group group : groups){
-            GroupMessage gm = new GroupMessage();
-            gm.setId(group.getId());
-            gm.setGroupname(group.getGroupname());
-            gm.setUsername1(userService.findById(group.getId1()).getUsername());
-            gm.setUsername2(userService.findById(group.getId2()).getUsername());
-            gm.setUsername3(userService.findById(group.getId3()).getUsername());
-            gm.setUsername4(userService.findById(group.getId4()).getUsername());
-            gm.setUsername5(userService.findById(group.getId5()).getUsername());
-            System.out.println(gm);
-            groupMessages.add(gm);
+        if(groups.size() != 0){
+            for(Group group : groups){
+                GroupMessage gm = new GroupMessage();
+                gm.setId(group.getId());
+                gm.setGroupname(group.getGroupname());
+                gm.setUsername1(userService.findById(group.getId1()).getUsername());
+                gm.setUsername2(userService.findById(group.getId2()).getUsername());
+                gm.setUsername3(userService.findById(group.getId3()).getUsername());
+                gm.setUsername4(userService.findById(group.getId4()).getUsername());
+                gm.setUsername5(userService.findById(group.getId5()).getUsername());
+                System.out.println(gm);
+                groupMessages.add(gm);
+            }
         }
         model.addAttribute("groupMessage",groupMessages);
         return "user/group";
     }
     @RequestMapping(path = "/signupsubmit")
     @ResponseBody
-    public boolean signupSubmit(ModelMap modelMap, Model model){
+    public boolean signupSubmit(ModelMap modelMap, Model model, HttpServletRequest request){
+        //获取登录存入Session的user
         User user =(User)modelMap.getAttribute("user");
+        //获取message
+        String message = request.getParameter("message");
+        System.out.println(message);
         boolean result = false;
         if("No".equals(user.getSigned())){
             user.setSigned("Yes");
             result = true ;
-            userService.updateUser(user);
-            model.addAttribute("user",user);
         }
+        user.setMessage(message);
+        userService.updateUser(user);
+        model.addAttribute("user",user);
         return result;
     }
 

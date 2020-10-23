@@ -11,6 +11,7 @@ import java.io.Serializable;
 public class Group implements Serializable {
     private Integer id;
     private String groupname;
+    private String live;
     private Integer id1;
     private Integer id2;
     private Integer id3;
@@ -22,12 +23,21 @@ public class Group implements Serializable {
         return "Group{" +
                 "id=" + id +
                 ", groupname='" + groupname + '\'' +
+                ", live='" + live + '\'' +
                 ", id1=" + id1 +
                 ", id2=" + id2 +
                 ", id3=" + id3 +
                 ", id4=" + id4 +
                 ", id5=" + id5 +
                 '}';
+    }
+
+    public String getLive() {
+        return live;
+    }
+
+    public void setLive(String live) {
+        this.live = live;
     }
 
     public Integer getId() {

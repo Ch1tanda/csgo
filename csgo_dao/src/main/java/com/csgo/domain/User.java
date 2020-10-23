@@ -12,6 +12,7 @@ public class User implements Serializable {
     private String rank;
     private Integer groupid;
     private String signed;
+    private String message;
 
     @Override
     public String toString() {
@@ -25,7 +26,16 @@ public class User implements Serializable {
                 ", rank='" + rank + '\'' +
                 ", groupid=" + groupid +
                 ", signed='" + signed + '\'' +
+                ", message='" + message + '\'' +
                 '}';
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public String getSigned() {

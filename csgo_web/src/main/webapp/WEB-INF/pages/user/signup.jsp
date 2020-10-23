@@ -13,17 +13,27 @@
     <script src="../../../js/jquery-3.5.1.js"></script>
     <script>
         function sign(){
-            $.ajax({
-                url:"signupsubmit",
-                type:"post",
-                success:function (data){
-                    if(data){
-                        alert("报名成功");
-                    }else{
-                        alert("已经报过名啦");
+            var message = document.getElementById("message").value;
+            if(message.length > 20){
+                alert("太长啦，得少于20字");
+            }else{
+                $.ajax({
+                    url:"signupsubmit",
+                    type:"post",
+                    data:{
+                        "message":message
+                    },
+                    success:function (data){
+                        if(data){
+                            alert("报名成功");
+                            document.getElementById("message").value = "";
+                        }else{
+                            alert("已经报过名啦");
+                            document.getElementById("message").value = "";
+                        }
                     }
-                }
-            })
+                })
+            }
         }
     </script>
 </head>
@@ -57,6 +67,7 @@
     <p>
         <button type="button" class="btn btn-primary btn-lg" onclick="sign()">报名报名报名报名报名</button>
     </p>
+    <textarea class="form-control" rows="1" placeholder="这里可以写简短备注,比如问候一下肝了两天网页的蛋挞，或者要和舍友一起rushB" id="message"></textarea>
 </div> <!-- /container -->
 </body>
 </html>
