@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="com.csgo.service.Test" time="4.796" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="com.csgo.service.Test" time="4.585" errors="0" skipped="0">
   <properties>
     <property name="java.vendor" value="Eclipse OpenJ9"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
@@ -86,9 +86,9 @@ JCL      - c82ff0c20f based on jdk8u265-b01"/>
     <property name="com.ibm.oti.configuration" value="scar"/>
     <property name="java.specification.version" value="1.8"/>
   </properties>
-  <testcase classname="com.csgo.service.Test" name="registerTest" time="2.27"/>
-  <testcase classname="com.csgo.service.Test" name="findAll" time="0.63"/>
-  <testcase classname="com.csgo.service.Test" name="findById" time="0.637"/>
-  <testcase classname="com.csgo.service.Test" name="findUserByUsername" time="0.551"/>
-  <testcase classname="com.csgo.service.Test" name="updateTest" time="0.708"/>
+  <testcase classname="com.csgo.service.Test" name="registerTest" time="2.055"/>
+  <testcase classname="com.csgo.service.Test" name="findAll" time="0.67"/>
+  <testcase classname="com.csgo.service.Test" name="findById" time="0.59"/>
+  <testcase classname="com.csgo.service.Test" name="findUserByUsername" time="0.55"/>
+  <testcase classname="com.csgo.service.Test" name="updateTest" time="0.72"/>
 </testsuite>

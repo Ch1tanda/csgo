@@ -67,7 +67,7 @@
     <p>
         <button type="button" class="btn btn-primary btn-lg" onclick="sign()">报名报名报名报名报名</button>
     </p>
-    <textarea class="form-control" rows="1" placeholder="这里可以写简短备注,比如问候一下肝了两天网页的蛋挞，或者要和舍友一起rushB" id="message"></textarea>
+    <textarea class="form-control" rows="1" placeholder="这里可以写简短备注（可重复提交，会覆盖上次备注）,比如问候一下肝了两天网页的蛋挞，或者要和舍友一起rushB" id="message"></textarea>
 </div> <!-- /container -->
 </body>
 </html>
