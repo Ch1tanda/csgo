@@ -87,7 +87,7 @@
                 <li><a href="manager">管理说明</a></li>
                 <li class="active"><a href="userinfo">选手信息</a></li>
                 <li><a href="group">分组信息</a></li>
-                <li><a href="result">添加赛果</a></li>
+                <li><a href="addresult">添加赛果</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="backtouser">返回用户页面</a></li>
@@ -142,7 +142,7 @@
     </div>
     <div class="row">
     <div class="page-header">
-        <h2>已报名选手信息</h2>
+        <h2>已报名选手信息(目前报名:${signed.size()})</h2>
     </div>
         <div class="container">
             <div class="col-md-2"><input class="form-control" placeholder="昵称" id="username"></div>

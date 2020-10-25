@@ -23,7 +23,7 @@
                 dateType:"json",
                 success:function (data){
                     if(data){
-                        alert("口令正确，土豆没牛子！");
+                        alert("口令正确！");
                         location.href="/manager.jsp";
                     }else{
                         alert("(；′⌒`) 密码错误...");

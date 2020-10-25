@@ -22,9 +22,9 @@
             var id5 = document.getElementById("id5").value;
             var reg = new RegExp("^[0-9]*$");
             if(id1 == "" || id2 == "" || id3 =="" || id4 ==""|| id5 == "" || groupname==""){
-                alert("请输全信息")
+                alert("请输全信息");
             }else if(!reg.test(id1) || !reg.test(id2) || !reg.test(id3) || !reg.test(id4) || !reg.test(id5)){
-                alert("id必须是纯数字")
+                alert("id必须是纯数字");
             }else{
                 var obj = {
                     groupname:groupname,
