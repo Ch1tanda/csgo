@@ -28,7 +28,6 @@
     <mvc:resources mapping="/bootstrap/**" location="/bootstrap/"/>
     
     <!--拦截器的配置-->
-
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/user/*"/>

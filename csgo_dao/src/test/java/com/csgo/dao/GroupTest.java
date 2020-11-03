@@ -23,13 +23,13 @@ public class GroupTest {
         SqlSessionFactory sqlSessionFactory = ac.getBean("sqlSessionFactory", SqlSessionFactory.class);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         IGroupDao gd = sqlSession.getMapper(IGroupDao.class);
-        Group group = new Group();
-        group.setGroupname("测试组");
-        group.setId1(1);
-        group.setId2(2);
-        group.setId3(3);
-        group.setId4(4);
-        group.setId5(5);
+        //Group group = new Group();
+        //group.setGroupname("测试组");
+        //group.setId1(1);
+        //group.setId2(2);
+        //group.setId3(3);
+        //group.setId4(4);
+        //group.setId5(5);
 
     }
 
@@ -61,15 +61,15 @@ public class GroupTest {
         SqlSessionFactory sqlSessionFactory = ac.getBean("sqlSessionFactory", SqlSessionFactory.class);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         IGroupDao gd = sqlSession.getMapper(IGroupDao.class);
-        Group group = new Group();
-        group.setId(1);
-        group.setGroupname("111");
-        group.setId1(1);
-        group.setId2(2);
-        group.setId3(3);
-        group.setId4(4);
-        group.setId5(5);
-        gd.updateGroup(group);
+       // Group group = new Group();
+       // group.setId(1);
+        //group.setGroupname("111");
+        //group.setId1(1);
+        //group.setId2(2);
+        //group.setId3(3);
+        //group.setId4(4);
+        //group.setId5(5);
+        //gd.updateGroup(group);
     }
 
     @Test
@@ -78,6 +78,6 @@ public class GroupTest {
         SqlSessionFactory sqlSessionFactory = ac.getBean("sqlSessionFactory", SqlSessionFactory.class);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         IGroupDao gd = sqlSession.getMapper(IGroupDao.class);
-        gd.deleteGroup(gd.findById(8));
+        //gd.deleteGroup(gd.findById(8));
     }
 }

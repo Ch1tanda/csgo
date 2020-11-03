@@ -1,8 +1,10 @@
 package com.csgo.controller;
 
+import com.csgo.domain.EventInfo;
 import com.csgo.domain.Group;
 import com.csgo.domain.GroupMessage;
 import com.csgo.domain.User;
+import com.csgo.service.IEventService;
 import com.csgo.service.IGroupService;
 import com.csgo.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +30,133 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(path = "/vip")
-@SessionAttributes({"signed","groupMessage"})
+@SessionAttributes({"signed","groupMessage","events"})
 public class VipController {
     @Autowired
     private IGroupService groupService;
     @Autowired
     private IUserService userService;
+    @Autowired
+    private IEventService eventService;
 
+    @RequestMapping(path = "/deleteevent")
+    @ResponseBody
+    public boolean deleteEvent(HttpServletRequest request){
+        try{
+            Integer id = Integer.parseInt(request.getParameter("id"));
+            EventInfo eventInfo = eventService.findById(id);
+            if(id == null) return false;
+            else{
+                eventService.deleteEventInfo(eventInfo);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    @RequestMapping(path = "/bv")
+    @ResponseBody
+    public boolean modifyBv(HttpServletRequest request){
+        try{
+            Integer id = Integer.parseInt(request.getParameter("id"));
+            String bv = request.getParameter("bv");
+            EventInfo eventInfo = eventService.findById(id);
+            if(eventInfo == null) return false;
+            else{
+                eventInfo.setBv(bv);
+                eventService.updateEventInfo(eventInfo);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+  @RequestMapping(path = "/eventresult")
+    @ResponseBody
+    public boolean modifyEventresult(HttpServletRequest request){
+        try{
+            Integer id = Integer.parseInt(request.getParameter("id"));
+            String eventresult = request.getParameter("eventresult");
+            EventInfo eventInfo = eventService.findById(id);
+            if(eventInfo == null) return false;
+            else{
+                eventInfo.setEventresult(eventresult);
+                eventService.updateEventInfo(eventInfo);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+
+    @RequestMapping(path = "/eventtime")
+    @ResponseBody
+    public boolean modifyEventtime(HttpServletRequest request){
+        try{
+            Integer id = Integer.parseInt(request.getParameter("id"));
+            String eventtime = request.getParameter("eventtime");
+            EventInfo eventInfo = eventService.findById(id);
+            if(eventInfo == null) return false;
+            else{
+                eventInfo.setEventtime(eventtime);
+                eventService.updateEventInfo(eventInfo);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    @RequestMapping(path = "/message")
+    @ResponseBody
+    public boolean modifyMessage(HttpServletRequest request){
+        //把String的id转化为Integer型
+        try{
+            Integer id = Integer.parseInt(request.getParameter("id"));
+            String message =request.getParameter("message");
+            EventInfo eventInfo = eventService.findById(id);
+            if(eventInfo == null) return false;
+            else {
+                eventInfo.setMessage(message);
+                eventService.updateEventInfo(eventInfo);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    @RequestMapping(path = "/createevent")
+    @ResponseBody
+    public boolean createEvent(@RequestBody EventInfo eventInfo){
+        //通过获取的队伍aid和bid去找对应的队伍，如果队伍不存在，返回false，如果存在，将队名添加
+        Group a = groupService.findById(eventInfo.getGroupaid());
+        Group b = groupService.findById(eventInfo.getGroupbid());
+        if(a == null || b == null){
+            return false;
+        }else{
+            eventInfo.setGroupaname(a.getGroupname());
+            eventInfo.setGroupbname(b.getGroupname());
+        }
+        //调取eventService来saveEvent
+        eventService.saveEventInfo(eventInfo);
+        return true;
+    }
+
+    /**
+     * 模糊查询User
+     * @param request
+     * @param model
+     * @return
+     */
     @RequestMapping(path = "/searchByUsername")
     @ResponseBody
     public boolean searchByUsername(HttpServletRequest request, Model model){
@@ -57,18 +180,23 @@ public class VipController {
     @RequestMapping(path = "/modifygroup")
     @ResponseBody
     public boolean modifyGroup(HttpServletRequest request){
-        Integer id = Integer.parseInt(request.getParameter("groupid"));
-        String groupname =  request.getParameter("groupname");
-        //通过组id获取groupid 判断有无该group
-        Group group = groupService.findById(id);
-        if(group == null){
+        try{
+            Integer id = Integer.parseInt(request.getParameter("groupid"));
+            String groupname =  request.getParameter("groupname");
+            //通过组id获取groupid 判断有无该group
+            Group group = groupService.findById(id);
+            if(group == null){
+                return false;
+            }else{
+                //修改groupname
+                group.setGroupname(groupname);
+                //更新group
+                groupService.updateGroup(group);
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
             return false;
-        }else{
-            //修改groupname
-            group.setGroupname(groupname);
-            //更新group
-            groupService.updateGroup(group);
-            return true;
         }
     }
 
@@ -187,7 +315,11 @@ public class VipController {
     }
 
     @RequestMapping(path = "/addresult")
-    public String addresult(){
+    public String addresult(Model model){
+        //获取所有eventinfo
+        List<EventInfo> events = eventService.findAll();
+        //加入Session
+        model.addAttribute("events",events);
         return "manager/addresult";
     }
 

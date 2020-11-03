@@ -1,5 +1,7 @@
 D:\csgo\csgo_dao\src\main\java\com\csgo\domain\User.java
 D:\csgo\csgo_dao\src\main\java\com\csgo\domain\GroupMessage.java
 D:\csgo\csgo_dao\src\main\java\com\csgo\dao\IGroupDao.java
+D:\csgo\csgo_dao\src\main\java\com\csgo\dao\IEventDao.java
 D:\csgo\csgo_dao\src\main\java\com\csgo\domain\Group.java
 D:\csgo\csgo_dao\src\main\java\com\csgo\dao\IUserDao.java
+D:\csgo\csgo_dao\src\main\java\com\csgo\domain\EventInfo.java

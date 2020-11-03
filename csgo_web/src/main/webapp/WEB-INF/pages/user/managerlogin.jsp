@@ -47,7 +47,7 @@
                 <li><a href="profile">个人信息</a></li>
                 <li><a href="signup">赛事报名</a></li>
                 <li><a href="group">分组查询</a></li>
-                <li><a href="result">比赛结果</a></li>
+                <li><a href="result">比赛信息</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="managerlogin">管理员登录</a></li>

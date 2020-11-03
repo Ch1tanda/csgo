@@ -39,6 +39,14 @@ public class LoginController {
         return "redirect:/index.jsp";
     }
 
+    /**
+     * 响应注册页面的注册ajax
+     * @param user
+     * @param response
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(path="/registersubmit")
     @ResponseBody
     public boolean register(@RequestBody User user, HttpServletResponse response, HttpServletRequest request) throws Exception {
@@ -48,6 +56,13 @@ public class LoginController {
         return result;
     }
 
+
+    /**
+     * 用来响应前端ajax 登录提交的请求
+     * @param user
+     * @param model
+     * @return
+     */
     @RequestMapping(path = "/loginsubmit")
     @ResponseBody
     public boolean loginSubmit(@RequestBody User user, Model model){

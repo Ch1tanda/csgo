@@ -44,7 +44,7 @@ public interface IUserDao {
      * 更新用户
      * @param user
      */
-    @Update("update userinfo set email=#{email},password=#{password},username=#{username},qq=#{qq},platform=#{platform},`rank`=#{rank},signed=#{signed},groupid=#{groupid},message=#{message} where id=#{id}")
+    @Update("update userinfo set email=#{email},password=#{password},username=#{username},qq=#{qq},platform=#{platform},`rank`=#{rank},signed=#{signed},groupid=#{groupid},message=#{message},confirm=#{confirm} where id=#{id}")
     void updateUser(User user);
 
     @Select("select * from userinfo where username like #{username}")

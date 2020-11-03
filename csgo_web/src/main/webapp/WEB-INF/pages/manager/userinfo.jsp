@@ -159,6 +159,7 @@
                 <td>电子邮箱</td>
                 <td>QQ</td>
                 <td>备注</td>
+                <td>确认</td>
                 <td>分组</td>
             </tr>
         </thead>
@@ -173,6 +174,7 @@
                         <td>${item.email}</td>
                         <td>${item.qq}</td>
                         <td>${item.message}</td>
+                        <td>${item.confirm}</td>
                         <td>null</td>
                     </tr>
                 </c:if>
@@ -187,6 +189,7 @@
                         <td>${item.email}</td>
                         <td>${item.qq}</td>
                         <td>${item.message}</td>
+                        <td>${item.confirm}</td>
                         <td>${item.groupid}</td>
                     </tr>
                 </c:if>

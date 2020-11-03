@@ -13,6 +13,7 @@ public class User implements Serializable {
     private Integer groupid;
     private String signed;
     private String message;
+    private String confirm;
 
     @Override
     public String toString() {
@@ -27,7 +28,16 @@ public class User implements Serializable {
                 ", groupid=" + groupid +
                 ", signed='" + signed + '\'' +
                 ", message='" + message + '\'' +
+                ", confirm='" + confirm + '\'' +
                 '}';
+    }
+
+    public String getConfirm() {
+        return confirm;
+    }
+
+    public void setConfirm(String confirm) {
+        this.confirm = confirm;
     }
 
     public String getMessage() {

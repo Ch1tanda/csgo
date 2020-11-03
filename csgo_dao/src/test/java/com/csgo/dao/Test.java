@@ -21,10 +21,10 @@ public class Test {
         SqlSessionFactory ssf = (SqlSessionFactory) ac.getBean("sqlSessionFactory");
         SqlSession session = ssf.openSession();
         IUserDao ud = session.getMapper(IUserDao.class);
-        User id = ud.findById(14);
-        if(id.getGroupid() == null){
-            System.out.println(111);
-        }
+        //User id = ud.findById(14);
+       // if(id.getGroupid() == null){
+       //     System.out.println(111);
+       // }
     }
 
     @org.junit.Test
@@ -33,9 +33,9 @@ public class Test {
         SqlSessionFactory ssf = (SqlSessionFactory) ac.getBean("sqlSessionFactory");
         SqlSession session = ssf.openSession();
         IUserDao ud = session.getMapper(IUserDao.class);
-        User user = ud.findById(14);
-        user.setGroupid(null);
-        ud.updateUser(user);
+        //User user = ud.findById(14);
+        //user.setGroupid(null);
+        //ud.updateUser(user);
     }
 
     @org.junit.Test
@@ -43,8 +43,8 @@ public class Test {
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring/applicationContext-dao.xml");
         SqlSessionFactory ssf = (SqlSessionFactory) ac.getBean("sqlSessionFactory");
         SqlSession session = ssf.openSession();
-        IUserDao ud = session.getMapper(IUserDao.class);
-        List<User> users = ud.searchByName("%o%");
-        System.out.println(users);
+       // IUserDao ud = session.getMapper(IUserDao.class);
+       // List<User> users = ud.searchByName("%o%");
+       // System.out.println(users);
     }
 }

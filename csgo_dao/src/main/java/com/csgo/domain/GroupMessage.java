@@ -16,6 +16,11 @@ public class GroupMessage implements Serializable {
     private String username3;
     private String username4;
     private String username5;
+    private String qq1;
+    private String qq2;
+    private String qq3;
+    private String qq4;
+    private String qq5;
 
     @Override
     public String toString() {
@@ -27,7 +32,52 @@ public class GroupMessage implements Serializable {
                 ", username3='" + username3 + '\'' +
                 ", username4='" + username4 + '\'' +
                 ", username5='" + username5 + '\'' +
+                ", qq1='" + qq1 + '\'' +
+                ", qq2='" + qq2 + '\'' +
+                ", qq3='" + qq3 + '\'' +
+                ", qq4='" + qq4 + '\'' +
+                ", qq5='" + qq5 + '\'' +
                 '}';
+    }
+
+    public String getQq1() {
+        return qq1;
+    }
+
+    public void setQq1(String qq1) {
+        this.qq1 = qq1;
+    }
+
+    public String getQq2() {
+        return qq2;
+    }
+
+    public void setQq2(String qq2) {
+        this.qq2 = qq2;
+    }
+
+    public String getQq3() {
+        return qq3;
+    }
+
+    public void setQq3(String qq3) {
+        this.qq3 = qq3;
+    }
+
+    public String getQq4() {
+        return qq4;
+    }
+
+    public void setQq4(String qq4) {
+        this.qq4 = qq4;
+    }
+
+    public String getQq5() {
+        return qq5;
+    }
+
+    public void setQq5(String qq5) {
+        this.qq5 = qq5;
     }
 
     public Integer getId() {

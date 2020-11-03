@@ -24,7 +24,7 @@
                 <li class="active"><a href="vip/manager">管理说明</a></li>
                 <li><a href="vip/userinfo">选手信息</a></li>
                 <li><a href="vip/group">分组信息</a></li>
-                <li><a href="vip/result">添加赛果</a></li>
+                <li><a href="vip/addresult">添加赛果</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="vip/backtouser">返回用户页面</a></li>

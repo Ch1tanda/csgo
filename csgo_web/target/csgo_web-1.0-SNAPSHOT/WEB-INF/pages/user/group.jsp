@@ -13,6 +13,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>分组信息</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script>
+        window.onload = function () {
+            if(${user.confirm.equals("Yes") && user.signed.equals("Yes")}){
+                document.getElementById("t").style.display="";
+            }else{
+                alert("请先进行报名以及最终确认");
+                location.href="signup";
+            }
+        }
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -28,7 +38,7 @@
                 <li><a href="profile">个人信息</a></li>
                 <li><a href="signup">赛事报名</a></li>
                 <li  class="active"><a href="group">分组查询</a></li>
-                <li><a href="result">比赛结果</a></li>
+                <li><a href="result">比赛信息</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="managerlogin">管理员登录</a></li>
@@ -41,7 +51,7 @@
     <div class="page-header">
         <h2>分组信息</h2>
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped" id="t" style="display: none" id="t">
         <thead>
         <tr>
             <td>#</td>
@@ -63,6 +73,15 @@
                 <td>${item.username3}</td>
                 <td>${item.username4}</td>
                 <td>${item.username5}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>${item.qq1}</td>
+                <td>${item.qq2}</td>
+                <td>${item.qq3}</td>
+                <td>${item.qq4}</td>
+                <td>${item.qq5}</td>
             </tr>
         </c:forEach>
         </tbody>
